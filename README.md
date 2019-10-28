@@ -9,11 +9,7 @@
 
 * `COUNTERS` displayed to the top right and left of the board keep track of your current as well as top score.
 
-* `CLICK` your way to the sit the Iron Throne!
 
-### Summary
-
-* `CLICKY-GAME` is built with `React.js`. Thus, the application is component based, able to keeps track of change events using `state`, and updates to the page render dynamically and without page refresh.
 
 
 
