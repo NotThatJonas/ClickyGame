@@ -17,6 +17,8 @@ class App extends Component {
     alertMessage: ""
   }
 
+
+  //grab the card image by "name"
   handlePicked = event => {
 
     const name = event.target.attributes.getNamedItem("name").value;
@@ -24,10 +26,12 @@ class App extends Component {
     this.checkGuess(name, this.updateTopScore)
   }
 
+  //shuffle the cards after pick
   shuffleCharacters = () => {
     this.setState(this.state.characters = this.shuffleArray(this.state.characters))
   }
 
+  //randomization of cards
   shuffleArray = (a) => {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -39,6 +43,7 @@ class App extends Component {
     return a;
   }
 
+  //logic to check if current guess is same as a previous choice this round
   checkGuess = (name, cb) => {
     const newState = { ...this.state };
     if (newState.pickedChars.includes(name)) {
@@ -53,6 +58,7 @@ class App extends Component {
     cb(newState, this.alertWinner)
   }
 
+  //if new score is higher than 
   updateTopScore = (newState, cb) => {
     if (newState.pickedChars.length > newState.topScore) {
       newState.topScore++
@@ -61,6 +67,7 @@ class App extends Component {
     cb(newState)
   }
 
+  //if 12 correct choices declare a champion
   alertWinner = (newState) => {
     if (newState.pickedChars.length === 12) {
       newState.alertMessage = "CHAMPION!";
@@ -69,6 +76,7 @@ class App extends Component {
     }
   }
 
+  //updating the cards on current stat of game,
   render() {
     return (
       <div>
@@ -118,7 +126,7 @@ class App extends Component {
           ))}
         </GridMDC>
         <BottomNavMDC style={{ background: "#313133", marginTop: "17.5px", paddingTop: "15px", borderTop: "2.5px solid slategray" }}>
-          <a href="https://github.com/philiptd5000/clicky-game-REACT" target="_blank" className="link" alt="clicky-game-github-link"><i className="fa fa-github fa-2x"></i></a>
+          <a href="https://github.com/NotThatJonas/ClickyGame" target="_blank" className="link" alt="clicky-game-github-link"><i className="fa fa-github fa-2x"></i></a>
         </BottomNavMDC>
 
       </div>
